@@ -1,0 +1,23 @@
+{
+  "name": "servo",
+  "description": "servo, with socket io",
+  "main": "server.js",
+  "authors": [
+    "Cindy Berghuizen"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.7",
+    "angular-socket-io": "^0.7.0",
+    "socket.io-client": "^1.4.8"
+  }
+}

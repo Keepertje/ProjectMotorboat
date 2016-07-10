@@ -1,0 +1,98 @@
+-- hello world with Led --
+on the arduino
+open examples, firmdata, standard firmata
+select the board via tools > board
+select the port tools> serial port> the com port
+upload the file to arduino
+
+make project on computer
+npm init, fill out data
+npm install johnny-five
+make file what you named start in npm init
+
+put led with anode / large (+) side in pin 13, small side in ground
+node app.js
+use code from LED
+<add schema>
+
+Yay blinking LED
+
+
+
+step 2 : control with laptop
+socket io
+ --- what is socket IO
+express
+angular (buttons)
+
+make angular front end, send on and off to led. 
+npm install socket io
+and bower install angular angular-socket-io and socket.io-client
+<code from led 2>
+   this.ledOn = function () {
+ 
+            mySocket.emit('led:on');
+            console.log('LED ON');
+        };
+and on the server side
+
+        socket.on('led:on', function (data) {
+           led.on();
+          
+         
+        });
+ Do the same for led, off.
+ run server.js go to localhost:3000, press the buttons :)
+
+Step 3. 
+Servo for steering (and it moves :D) we can use it for steering because it moves 180 degrees from left to right
+wire: servo red to 5v,
+black to ground
+other color (white or yellow) to pin ~3
+
+<add schema>
+
+we want to move it to the left and the right
+and also back to center for no steering.
+
+for the code:
+for index and app js. add three new butons: left and right
+and make them emit left, right and center.
+
+Add three new socket ons in app:, left and right and center
+
+  socket.on('servo:left', function(data) {
+           
+        })
+ socket.on('servo:right', function(data) {
+           
+        })
+socket.on('servo:center', function(data){
+});
+
+set pin on 3
+new five.Servo(3);
+Look at johnny five api, what function do we need.
+we can use servo.center() to make it go to the center. so add that one
+in beginning (to start without steering) and in on servo:center
+
+see Servo folder in code
+we don't want it to go completely from 0 to 180 degrees
+so we set the range to 30, 150
+
+left and right: min and max. 
+But goes to fast (i guess) so we set the time it should take.
+servo.to(30,500) and servo.to(150,500) 
+hmm from center to left is slower than from right to left. 
+This is because of the total time (500) to travel
+we can adjust for that using a variable to keep hold of the current state
+so we can make tht total time to take more if the distance is far away.
+also to center goes fast, so we can do that with a to as well. (to 90)
+this does not need a var cause it is always from left or right (same dist)
+
+very easy ya!
+
+
+
+
+
