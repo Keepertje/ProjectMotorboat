@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Cindy awesome stuff</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
 </head>  
 <body>  
   <script src="bower_components/socket.io-client/socket.io.js"></script>
@@ -11,7 +14,7 @@
   <script src="bower_components/angular-socket-io/socket.js"></script>
   <script src="app.js"></script>
  
-    <h1>Super home automation dashboard</h1>
+    <h1>Boaty McBoatFace</h1>
   <div ng-controller="ArduController as ctrl">
     <div>
        <h2>LED</h2>
@@ -24,7 +27,19 @@
            <button ng-click="ctrl.servoCenter()">Center</button>
         <button ng-click="ctrl.servoRight()">Right</button>
        </div>
+
+  <div>   
+     <h2>Motor</h2>
+        
+           <button ng-click="ctrl.motorStop()">Stop</button>
+        <button ng-click="ctrl.motorRight()">Aan</button>
+    
   </div>
+  <div>
+    
+    </div>
+
+    </div>
 
   </div>
  

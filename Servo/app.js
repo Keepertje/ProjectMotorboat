@@ -3,7 +3,7 @@
         return socketFactory();
     }).
     controller('ArduController', function (mySocket) {
- 
+       
         this.ledOn = function () {
             mySocket.emit('led:on');
         };
@@ -20,6 +20,14 @@
             }
         this.servoRight = function(){
             mySocket.emit('servo:right')
+        }
+
+       
+        this.motorRight = function(){
+            mySocket.emit('motor:harder')
+        }
+        this.motorStop = function(){
+            mySocket.emit('motor:stop')
         }
 
 });

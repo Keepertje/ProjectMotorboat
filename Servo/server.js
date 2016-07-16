@@ -17,23 +17,37 @@ httpServer.listen(port);
 console.log('Server available at http://localhost:' + port);  
 
 
-var led, servo, steering;
+var led, servo, steering, motor;
+
+var speeds = [{stand:0,speed:0},{stand:1,speed:51},{stand:2,speed:102}
+,{stand:3,speed:153},{stand:4,speed:204},{stand:5,speed:255}]
+var stand = 0;
+var steering = 'center';
  
 //Arduino board connection
  
 var board = new five.Board();  
 board.on("ready", function() {  
     console.log('Arduino connected');
+   
+    motor = new five.Motor({
+    pins: {
+        pwm:9,
+        dir:2,
+        cdir: 3  
+        }
+    });
+
     led = new five.Led(13);
     led.on();
-    //centreer de servo
-  servo =  new five.Servo({
-        pin: 3,
+    
+    servo =  new five.Servo({
+        pin: 10,
         center: true,
         range:[30,150]
       
     });
-    steering = 'center';
+    
     
 });
  
@@ -72,11 +86,38 @@ io.on('connection', function (socket) {
             steering = 'center';
         })
 
+         socket.on('motor:stop', function(data){
+             stand = 0;
+              motor.stop(); 
+        })
+         //socket.on('motor:zachter', function(data){
+             
+         // if(stand > 0){
+            //  stand = stand-1;
+            //    console.log('standje zachter ', stand)
+           //     motor.forward(currentSpeed(stand));
+          //  }
+         //})
+         socket.on('motor:harder', function(data){
+             //if(stand < 5){
+               //  stand = stand+1;
+               // console.log('standje harder ', stand)
+                 motor.reverse(255);
+             //}
+        })
+
 
         
     });
  
 var isCenter = function(steerDir){
     return steerDir === 'center'
+
 }
+
+var currentSpeed = function(nieuweStand){
+  
+    return speeds[nieuweStand].speed
+}
+
 console.log('Waiting for connection');
