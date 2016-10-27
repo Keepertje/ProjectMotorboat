@@ -19,7 +19,7 @@ var led;
  
 //Arduino board connection
  
-var board = new five.Board();  
+var board = new five.Board( {port: "COM4"});  
 board.on("ready", function() {  
     console.log('Arduino connected');
     led = new five.Led(13);

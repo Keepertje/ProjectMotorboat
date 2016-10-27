@@ -1,0 +1,14 @@
+{
+  "name": "led",
+  "version": "1.0.0",
+  "description": "Hello world for arduino",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cindy Berghuizen",
+  "license": "ISC",
+  "devDependencies": {
+    "johnny-five": "^0.9.59"
+  }
+}

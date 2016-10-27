@@ -26,7 +26,7 @@ var steering = 'center';
  
 //Arduino board connection
  
-var board = new five.Board();  
+var board = new five.Board( {port: "COM4"});  
 board.on("ready", function() {  
     console.log('Arduino connected');
    
@@ -90,20 +90,9 @@ io.on('connection', function (socket) {
              stand = 0;
               motor.stop(); 
         })
-         //socket.on('motor:zachter', function(data){
-             
-         // if(stand > 0){
-            //  stand = stand-1;
-            //    console.log('standje zachter ', stand)
-           //     motor.forward(currentSpeed(stand));
-          //  }
-         //})
+       
          socket.on('motor:harder', function(data){
-             //if(stand < 5){
-               //  stand = stand+1;
-               // console.log('standje harder ', stand)
-                 motor.reverse(255);
-             //}
+             motor.reverse(255);
         })
 
 
