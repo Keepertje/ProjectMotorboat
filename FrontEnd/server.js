@@ -53,7 +53,7 @@ board.on("ready", function() {
  
 //Socket connection handler
 io.on('connection', function (socket) {  
-        console.log(socket.id);
+   
  
         socket.on('led:on', function (data) {
            led.on();

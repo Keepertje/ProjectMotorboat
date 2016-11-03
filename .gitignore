@@ -6,3 +6,10 @@ LED2/node_modules
 LED2/bower_components
 servo-standalone/node_modules
 Twitter/node_modules
+FrontEnd/node_modules/serialport/node_modules/node-pre-gyp/node_modules/rimraf/node_modules/glob/node_modules/path-is-absolute/readme.md
+FrontEnd/node_modules/
+Servo_REPL/node_modules/serialport/node_modules/node-pre-gyp/node_modules/npmlog/node_modules/gauge/node_modules/signal-exit/CHANGELOG.md
+Twitter/twitter-auth.js
+Servo_REPL/node_modules/
+Servo_alone/node_modules/
+FrontEnd/bower_components/
